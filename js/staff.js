@@ -84,7 +84,7 @@ function startListening() {
     allBookings = snapshot.docs.map((d) => ({ id: d.id, ...d.data() }));
     render();
   }, (err) => {
-    tbody.innerHTML = `<tr><td colspan="13" style="text-align:center;color:var(--danger);">Errore nel caricamento: ${err.message}</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="12" style="text-align:center;color:var(--danger);">Errore nel caricamento: ${err.message}</td></tr>`;
   });
 }
 
@@ -107,7 +107,7 @@ function render() {
   document.getElementById("stat-incasso").textContent = formatEuro(incasso);
 
   if (list.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="13" style="text-align:center;color:var(--text-dim);">Nessuna prenotazione.</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="12" style="text-align:center;color:var(--text-dim);">Nessuna prenotazione.</td></tr>`;
     return;
   }
 
@@ -117,7 +117,6 @@ function render() {
       <tr data-id="${b.id}">
         <td>${data}</td>
         <td>${escapeHtml(b.ign)}</td>
-        <td>${escapeHtml(b.telegram)}</td>
         <td>${escapeHtml(b.plot)}</td>
         <td>${escapeHtml(b.progettazione)}</td>
         <td>${escapeHtml(b.dimensione)}</td>
