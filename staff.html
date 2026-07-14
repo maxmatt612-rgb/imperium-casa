@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Area Staff — Imperium Casa</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" type="image/png" href="assets/logo.png">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <div class="brand-row">
+      <img src="assets/logo.png" alt="Imperium Casa" class="logo-img">
+      <div class="brand">IMPERIUM CASA<span>AREA STAFF — RISERVATA</span></div>
+    </div>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="prenota.html">Prenota</a>
+      <a href="blog.html">Blog</a>
+      <a href="#" id="logout-link" style="display:none;">Esci</a>
+    </nav>
+  </div>
+</header>
+
+<div id="login-view" class="wrap">
+  <div class="login-wrap card">
+    <h2 class="section-title">Accesso Staff</h2>
+    <div id="login-error" class="error-box" style="display:none;"></div>
+    <form id="login-form">
+      <div class="field">
+        <label for="password">Password staff</label>
+        <input type="password" id="password" required autocomplete="current-password" autofocus>
+      </div>
+      <button type="submit" class="btn" style="width:100%;">Entra</button>
+    </form>
+    <p class="small-note" style="text-align:center;">Credenziali fornite dal direttore. Non condividerle fuori dallo staff.</p>
+  </div>
+</div>
+
+<div id="dashboard-view" class="wrap" style="display:none;">
+  <section>
+    <div class="top-bar">
+      <h2 class="section-title" style="margin:0;">Prenotazioni</h2>
+      <div>
+        <select id="filter-stato" class="status-select">
+          <option value="">Tutti gli stati</option>
+          <option value="In attesa">In attesa</option>
+          <option value="In lavorazione">In lavorazione</option>
+          <option value="Completato">Completato</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat"><div class="num" id="stat-totale">0</div><div class="lbl">Prenotazioni totali</div></div>
+      <div class="stat"><div class="num" id="stat-attesa">0</div><div class="lbl">In attesa</div></div>
+      <div class="stat"><div class="num" id="stat-lavorazione">0</div><div class="lbl">In lavorazione</div></div>
+      <div class="stat"><div class="num" id="stat-incasso">0 €</div><div class="lbl">Totale valore prenotazioni</div></div>
+    </div>
+
+    <div class="card table-scroll">
+      <table class="bookings">
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>IGN</th>
+            <th>Telegram</th>
+            <th>Plot</th>
+            <th>Progettazione</th>
+            <th>Dimensione</th>
+            <th>Altezza</th>
+            <th>Styling</th>
+            <th>Pagamento</th>
+            <th>Note</th>
+            <th>Totale</th>
+            <th>Stato</th>
+            <th>Azioni</th>
+          </tr>
+        </thead>
+        <tbody id="bookings-body">
+          <tr><td colspan="13" style="text-align:center;color:var(--text-dim);">Caricamento...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>
+
+<footer>
+  Imperium Casa — Pannello riservato allo staff
+</footer>
+
+<script type="module" src="js/staff.js"></script>
+</body>
+</html>

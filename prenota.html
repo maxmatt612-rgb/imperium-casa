@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prenota la tua build — Imperium Casa</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" type="image/png" href="assets/logo.png">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <div class="brand-row">
+      <img src="assets/logo.png" alt="Imperium Casa" class="logo-img">
+      <div class="brand">IMPERIUM CASA<span>BUILD SERVICE — ZEROROLEPLAY</span></div>
+    </div>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="prenota.html">Prenota</a>
+      <a href="blog.html">Blog</a>
+      <a href="https://t.me/imperiumcasa" target="_blank" rel="noopener">Telegram</a>
+      <a href="staff.html">Area Staff</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" style="padding:50px 20px 20px;">
+  <div class="wrap">
+    <h1 style="font-size:2rem;">Listino &amp; Prenotazione</h1>
+    <p>Scegli dimensione, altezza e stile: il preventivo si calcola in automatico.</p>
+  </div>
+</section>
+
+<section id="prezzi">
+  <div class="wrap">
+    <h2 class="section-title">Come funziona il prezzo</h2>
+    <div class="pricing-grid">
+      <div class="price-card reveal">
+        <h3>1. Progettazione</h3>
+        <p>Fase di design e planning della struttura.</p>
+        <ul>
+          <li>Base: 3.000 €</li>
+          <li>Completa: 5.000 €</li>
+        </ul>
+      </div>
+      <div class="price-card reveal">
+        <h3>2. Dimensioni (area base)</h3>
+        <p>La grandezza del plot su cui costruiamo.</p>
+        <ul>
+          <li>Plot 16×16: 5.000 €</li>
+          <li>Plot 32×32: 10.000 €</li>
+        </ul>
+      </div>
+      <div class="price-card reveal">
+        <h3>3. Altezza</h3>
+        <p>In base allo sviluppo verticale della struttura.</p>
+        <ul>
+          <li>Ogni 4 blocchi di altezza: +500 €</li>
+        </ul>
+      </div>
+      <div class="price-card reveal">
+        <h3>4. Styling &amp; Dettagli</h3>
+        <p>Caratterizzazione estetica e cura dei dettagli.</p>
+        <ul>
+          <li>Base: 3.000 €</li>
+          <li>Completo: 5.000 €</li>
+        </ul>
+      </div>
+    </div>
+    <p class="small-note" style="text-align:center;margin-top:18px;">
+      Metodi di pagamento accettati: anticipato (intero importo all'ordine) oppure rateizzato 50/50 (metà all'inizio lavori, metà alla consegna).
+    </p>
+  </div>
+</section>
+
+<section id="prenota">
+  <div class="wrap">
+    <div class="card reveal">
+      <h2 class="section-title">Prenota la tua build</h2>
+
+      <div id="form-error" class="error-box" style="display:none;"></div>
+
+      <form id="booking-form">
+        <div class="two-col">
+          <div class="field">
+            <label for="ign">Nome utente Minecraft (IGN) *</label>
+            <input type="text" id="ign" required placeholder="Es. Mattia_MC">
+          </div>
+          <div class="field">
+            <label for="telegram">Username Telegram *<span class="hint"> — con @</span></label>
+            <input type="text" id="telegram" required placeholder="@tuonome">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="plot">Numero plot / coordinate *</label>
+          <input type="text" id="plot" required placeholder="Es. Plot #42 o coordinate x,z">
+        </div>
+
+        <div class="two-col">
+          <div class="field">
+            <label for="progettazione">Fase di progettazione *</label>
+            <select id="progettazione" required>
+              <option value="base">Base — 3.000 €</option>
+              <option value="completa">Completa — 5.000 €</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="dimensione">Dimensione plot *</label>
+            <select id="dimensione" required>
+              <option value="16x16">16×16 — 5.000 €</option>
+              <option value="32x32">32×32 — 10.000 €</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="field">
+            <label for="altezza">Altezza struttura (blocchi) *<span class="hint"> — +500 € ogni 4 blocchi</span></label>
+            <input type="number" id="altezza" min="0" step="1" value="4" required>
+          </div>
+          <div class="field">
+            <label for="styling">Styling &amp; dettagli *</label>
+            <select id="styling" required>
+              <option value="base">Base — 3.000 €</option>
+              <option value="completo">Completo — 5.000 €</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Metodo di pagamento *</label>
+          <div class="radio-row">
+            <label class="radio-opt" id="opt-anticipato">
+              <input type="radio" name="pagamento" value="anticipato" checked>
+              Anticipato (intero importo all'ordine)
+            </label>
+            <label class="radio-opt" id="opt-rate">
+              <input type="radio" name="pagamento" value="rateizzato">
+              Rateizzato 50/50 (acconto + saldo alla consegna)
+            </label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="note">Note aggiuntive <span class="hint">(opzionale)</span></label>
+          <textarea id="note" placeholder="Riferimenti, stile desiderato, ispirazioni..."></textarea>
+        </div>
+
+        <div class="total-box">
+          <div class="breakdown" id="breakdown"></div>
+          <div class="grand"><span>Totale stimato</span><span id="totale-value">0 €</span></div>
+          <div id="rate-note" class="small-note" style="display:none;"></div>
+        </div>
+
+        <div class="field" style="margin-top:20px;">
+          <button type="submit" class="btn" id="submit-btn">Invia prenotazione</button>
+        </div>
+      </form>
+
+      <div id="confirm" class="confirm-box" style="display:none;">
+        <h3>Prenotazione inviata!</h3>
+        <p id="confirm-text"></p>
+        <p class="small-note">Ti contatteremo su Telegram per confermare i dettagli.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Imperium Casa — Build Service per ZeroRoleplay · Non affiliato ufficialmente al server<br>
+  Telegram: <a href="https://t.me/imperiumcasa" target="_blank" rel="noopener">@imperiumcasa</a>
+</footer>
+
+<a class="telegram-float" href="https://t.me/imperiumcasa" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24"><path d="M9.036 15.803l-.396 5.577c.568 0 .814-.244 1.109-.537l2.663-2.545 5.518 4.041c1.012.564 1.73.267 1.998-.931L23.95 3.62c.328-1.478-.541-2.055-1.527-1.688L1.11 10.08c-1.442.56-1.424 1.36-.247 1.72l5.443 1.7L18.85 6.68c.577-.363 1.104-.163.671.2z"/></svg>
+  @imperiumcasa
+</a>
+
+<script src="js/site.js"></script>
+<script type="module" src="js/booking.js"></script>
+</body>
+</html>
